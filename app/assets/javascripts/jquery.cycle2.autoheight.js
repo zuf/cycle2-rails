@@ -1,11 +1,13 @@
 //= require jquery.cycle2.core
 
-/*! Cycle2 autoheight plugin; Copyright (c) M.Alsup, 2012; version: 20130304 */
+/*! Cycle2 autoheight plugin; Copyright (c) M.Alsup, 2012; version: 20130913 */
 (function($) {
 "use strict";
 
 $.extend($.fn.cycle.defaults, {
-    autoHeight: 0 // setting this option to false disables autoHeight logic
+    autoHeight: 0, // setting this option to false disables autoHeight logic
+    autoHeightSpeed: 250,
+    autoHeightEasing: null
 });    
 
 $(document).on( 'cycle-initialized', function( e, opts ) {
@@ -110,8 +112,7 @@ function calcSentinelIndex( e, opts ) {
 
 function onBefore( e, opts, outgoing, incoming, forward ) {
     var h = $(incoming).outerHeight();
-    var duration = opts.sync ? opts.speed / 2 : opts.speed;
-    opts.container.animate( { height: h }, duration );
+    opts.container.animate( { height: h }, opts.autoHeightSpeed, opts.autoHeightEasing );
 }
 
 function onDestroy( e, opts ) {
