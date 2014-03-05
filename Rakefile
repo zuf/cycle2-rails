@@ -49,8 +49,9 @@ task :update do
   http://malsup.github.com/jquery.cycle2.caption2.js
   http://malsup.github.com/jquery.cycle2.center.js
   http://malsup.github.com/jquery.cycle2.swipe.js
-  http://malsup.github.com/jquery.cycle2.video.js]
-    
+  http://malsup.github.com/jquery.cycle2.video.js
+  http://malsup.github.com/jquery.cycle2.flip.js
+  http://malsup.github.com/jquery.cycle2.lookahead.js]    
   plugins.each do |plugin_url|
     plugin_outputfile = File.join(base_output, File.basename(plugin_url))
     open(plugin_outputfile, 'wb') do |file|

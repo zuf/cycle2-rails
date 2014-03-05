@@ -8,4 +8,6 @@
 //= require jquery.cycle2.center
 //= require jquery.cycle2.swipe
 //= require jquery.cycle2.video
+//= require jquery.cycle2.flip
+//= require jquery.cycle2.lookahead
 
