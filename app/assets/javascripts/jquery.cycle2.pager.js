@@ -1,6 +1,6 @@
 //= require jquery.cycle2.core
 
-/*! pager plugin for Cycle2;  version: 20140324 */
+/*! pager plugin for Cycle2;  version: 20140415 */
 (function($) {
 "use strict";
 
@@ -10,7 +10,7 @@ $.extend($.fn.cycle.defaults, {
     pagerEvent:       'click.cycle',
     pagerEventBubble: undefined,
     pagerTemplate:    '<span>&bull;</span>'
-});    
+});
 
 $(document).on( 'cycle-bootstrap', function( e, opts, API ) {
     // add method to API
@@ -89,9 +89,9 @@ function page( pager, target ) {
         return; // no op, clicked pager for the currently displayed slide
     }
     opts.nextSlide = nextSlide;
+    opts._tempFx = opts.pagerFx;
     opts.API.prepareTx( true, fwd );
     opts.API.trigger('cycle-pager-activated', [opts, pager, target ]);
 }
 
 })(jQuery);
-

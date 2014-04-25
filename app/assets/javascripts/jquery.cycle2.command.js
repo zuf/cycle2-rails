@@ -1,6 +1,6 @@
 //= require jquery.cycle2.core
 
-/*! command plugin for Cycle2;  version: 20130707 */
+/*! command plugin for Cycle2;  version: 20140415 */
 (function($) {
 "use strict";
 
@@ -96,7 +96,7 @@ $.extend( c2.API, {
         });
     },
 
-    jump: function( index ) {
+    jump: function( index, fx ) {
         // go to the requested slide
         var fwd;
         var opts = this.opts();
@@ -116,6 +116,7 @@ $.extend( c2.API, {
         opts.timeoutId = 0;
         opts.API.log('goto: ', num, ' (zero-index)');
         fwd = opts.currSlide < opts.nextSlide;
+        opts._tempFx = fx;
         opts.API.prepareTx( true, fwd );
     },
 
